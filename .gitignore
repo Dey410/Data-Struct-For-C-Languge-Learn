@@ -5,4 +5,4 @@ build/
 *.out
 *.exe
 
-point_and_function
+/.vscode
