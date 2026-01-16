@@ -1,4 +1,4 @@
-//设计一个函数，传入两个int参数，并交换这两个参数的值。
+/*设计一个函数，传入两个int参数，并交换这两个参数的值。
 #include <stdio.h>
 
 void swap(int *p1,int *p2){
@@ -15,3 +15,4 @@ int main(){
     printf("m=%d,n=%d\n",*p1,*p2);
     return 0;
 }
+*/
