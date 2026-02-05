@@ -66,6 +66,6 @@ int main(int argc, char const *argv[])
     appendElem(&List,36);
     appendElem(&List,58);
     PrintListElem(&List);
-    InsertElem();
+    InsertElem(&List,1,1);
     return 0;
 }
