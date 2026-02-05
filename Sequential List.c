@@ -1,5 +1,6 @@
 //顺序表
 #include <stdio.h>
+#include <stdlib.h>
 
 #define MAXSIZE 100
 typedef int ElemType;
@@ -11,11 +12,13 @@ typedef struct
     int length;
 }SeqList;
 
-//初始化顺序表
-void initList(SeqList *L){
-    L->length = 0;
+// 初始化顺序表
+SeqList* initList() {
+    SeqList* List = (SeqList*)malloc(sizeof(SeqList));
+    List->data = (ElemType*)malloc(sizeof(ElemType) * MAXSIZE);
+    List->length = 0;
+    return List;
 }
-
 //在尾部添加元素
 int appendElem(SeqList *List,ElemType valuue){
     if (List->length>=MAXSIZE)
@@ -54,18 +57,34 @@ void InsertElem(SeqList *List,int pot,ElemType value){
         List->length++;
         List->data[pot] = value;
     }
-    return 1;
+    return 0;
+}
+
+//查找数据位置
+int findElem(SeqList *List,ElemType value){
+    int size = 0;
+    while (List->length != size)
+    {
+        if(List->data[size] == value){
+            printf("%d的位置是:%d\n",value,size+1);
+            return size;
+        }
+        size++;
+    }
+    return -1;
+    
 }
 
 int main(int argc, char const *argv[])
 {
     SeqList List;
-    initList(&List);
+    initList();
     appendElem(&List,23);
     appendElem(&List,49);
     appendElem(&List,36);
     appendElem(&List,58);
     PrintListElem(&List);
     InsertElem(&List,1,1);
+    findElem(&List,23);
     return 0;
 }
